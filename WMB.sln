@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMB.ConsoleUI", "WMB.ConsoleUI\WMB.ConsoleUI.csproj", "{444FCAD5-11E9-4957-9BA5-C898BCAC33F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMB.Logic", "WMB.Logic\WMB.Logic.csproj", "{712207DC-8F0A-422B-86F7-9EC6C506E004}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helper", "Helper\Helper.csproj", "{59D21D14-6ED8-4B19-BFA8-4340662A583C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{444FCAD5-11E9-4957-9BA5-C898BCAC33F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{444FCAD5-11E9-4957-9BA5-C898BCAC33F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{444FCAD5-11E9-4957-9BA5-C898BCAC33F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{712207DC-8F0A-422B-86F7-9EC6C506E004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{712207DC-8F0A-422B-86F7-9EC6C506E004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{712207DC-8F0A-422B-86F7-9EC6C506E004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{712207DC-8F0A-422B-86F7-9EC6C506E004}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59D21D14-6ED8-4B19-BFA8-4340662A583C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59D21D14-6ED8-4B19-BFA8-4340662A583C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59D21D14-6ED8-4B19-BFA8-4340662A583C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59D21D14-6ED8-4B19-BFA8-4340662A583C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
