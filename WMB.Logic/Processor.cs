@@ -7,11 +7,57 @@ namespace WMB.Logic
     {
         public string? LoadCaseListPath { get; set; } // = "defaultní hodnota" .. v případě, že nepoužijeme otazník
         public string? LoadCasesFolderPath { get; set; }
+        public string? ResultsFolderPath { get; set; }
+        public string? ResultsFileName { get; set; }
 
         public void Run()
         {
+            Console.WriteLine("Process started.");
+
+
             List<LoadCase> loadCases = LoadLoadCases();
-            
+            List<LoadCase> orderedLoadCases = OrderByTimeShare(loadCases);
+            Export(orderedLoadCases);
+
+
+            Console.WriteLine("Done.");
+            Console.WriteLine("Elapsed time: " + SystemOperation.GetElapsedTimeSinceApplicationStarted());
+        }
+
+        private List<LoadCase> OrderByTimeShare(List<LoadCase> loadCases)
+        {
+            return loadCases.OrderBy(lc => lc.TimeShare).ToList();
+        }
+
+        private void Export(List<LoadCase> loadCases)
+        {
+            if (ResultsFolderPath is null)
+            {
+                throw new Exception("Results folder path is empty");
+            }
+            if (ResultsFileName is null)
+            {
+                throw new Exception("Result File Name is empty");
+            }
+            Dictionary<(int, int), object> loadCaseData = new();
+
+            // Header:
+            loadCaseData.Add((0, 0), "Load Case Name");
+            loadCaseData.Add((0, 1), "Tihe Share");
+
+            // Body:
+            int row = 1;
+            foreach (LoadCase loadCase in loadCases)
+            {
+                if (loadCase.Name is null)
+                {
+                    throw new Exception("There is empty name of loadCase at row " + row);
+                }
+                loadCaseData.Add((row, 0), loadCase.Name);
+                loadCaseData.Add((row, 1), loadCase.TimeShare);
+                row++;
+            }
+            FileProcessor.Export(loadCaseData, ResultsFolderPath, ResultsFileName, ';', "csv");
         }
 
         private List<LoadCase> LoadLoadCases()
